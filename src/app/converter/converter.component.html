@@ -1,0 +1,30 @@
+
+<form (ngSubmit)="calcular()" [formGroup]="formulario" novalidate >
+<label class="fs-3 text-secondary">Convertir modenas</label>
+<div class="form-group" >
+  <label for="">Valor</label>
+  <input required type="text" class="form-control" name="" id="valor" aria-describedby="helpId" placeholder="0.00" formControlName='valor'/>
+  
+  </div>
+
+ <div>
+  <label for="">Tipo de cambio </label>
+  <select class="form-control" name="" id="" formControlName='tipo' >
+    <option  >Seleccionar</option>
+    <option *ngFor="let tipo of tipocambio" >{{tipo.tipo}}</option>
+    
+  </select>
+  <h1 *ngIf='total==null' class="alert-danger">Selecciona moneda</h1>
+</div>
+  <div>
+
+    <label for="">Total conversion</label>
+   <p class="fs-4" formControlName='total'> {{ total | currency:'$' }}</p>
+
+  </div>
+  <button *ngIf="!formulario.invalid"  
+  (click)='calcular()'
+   name="" id="boton" class="btn btn-secondary " href="#" role="button" type="button" 
+     >Calcular</button>
+
+</form>
